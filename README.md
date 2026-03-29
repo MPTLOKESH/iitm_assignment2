@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-This project demonstrates the creation of a simple backend API using **FastAPI** and its deployment using **Docker**. The application is containerized to ensure consistent execution across different environments.
+This project demonstrates the development of a simple backend API using **FastAPI** and its containerization using **Docker**. The application runs inside a Docker container and can be accessed through mapped ports.
 
 ---
 
@@ -23,21 +23,34 @@ assignment__2/
 │── requirements.txt
 │── Dockerfile
 │── README.md
+│── video.mp4
+```
+
+---
+
+## 🎥 Screencast Video
+
+The complete working demonstration of the project is included below:
+
+👉 Download and watch:
+
+```
+video.mp4
 ```
 
 ---
 
 ## 🔗 API Endpoints
 
-| Endpoint     | Method | Description                   |
-| ------------ | ------ | ----------------------------- |
-| `/`          | GET    | Returns a Hello World message |
-| `/data`      | GET    | Returns sample JSON data      |
-| `/data/{id}` | GET    | Returns item by ID            |
+| Endpoint     | Method | Description                 |
+| ------------ | ------ | --------------------------- |
+| `/`          | GET    | Returns Hello World message |
+| `/data`      | GET    | Returns sample JSON data    |
+| `/data/{id}` | GET    | Returns item by ID          |
 
 ---
 
-## ⚙️ Running the Application with Docker
+## ⚙️ Running the Application
 
 ### 1️⃣ Build Docker Image
 
@@ -53,9 +66,7 @@ docker run -p 8000:8000 iitm_assignment2
 
 ---
 
-## 🌐 Access the Application
-
-Once the container is running, open your browser:
+## 🌐 Access the API
 
 * http://localhost:8000
 * http://localhost:8000/data
@@ -63,27 +74,27 @@ Once the container is running, open your browser:
 
 ---
 
-## 🧠 Key Concepts Covered
+## 📦 Dockerfile Explanation
 
-* Building REST APIs using FastAPI
-* Containerizing applications using Docker
-* Port mapping between host and container
-* Running applications inside isolated environments
+* **FROM python:3.10** → Base image with Python
+* **WORKDIR /usr/src/app** → Working directory inside container
+* **COPY requirements.txt .** → Copy dependencies
+* **RUN pip install -r requirements.txt** → Install dependencies
+* **COPY main.py .** → Copy application code
+* **EXPOSE 8000** → Expose port
+* **CMD** → Run FastAPI app using Uvicorn
 
 ---
 
-## 📦 Dockerfile Explanation
+## 🧠 Key Concepts
 
-* **FROM python:3.10** → Base image with Python installed
-* **WORKDIR /usr/src/app** → Sets working directory inside container
-* **COPY requirements.txt .** → Copies dependency file
-* **RUN pip install -r requirements.txt** → Installs dependencies
-* **COPY main.py .** → Copies application code
-* **EXPOSE 8000** → Exposes application port
-* **CMD** → Runs the FastAPI application using Uvicorn
+* REST API development using FastAPI
+* Docker containerization
+* Port mapping between host and container
+* Running applications in isolated environments
 
 ---
 
 ## ✅ Conclusion
 
-This project successfully demonstrates how to build and containerize a backend API, making it portable and easy to deploy in different environments.
+This project successfully demonstrates how to build, containerize, and run a backend API using Docker.
